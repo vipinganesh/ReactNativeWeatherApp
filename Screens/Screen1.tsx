@@ -4,7 +4,7 @@ import { View, TextInput, StyleSheet, Button } from "react-native";
 const Screen1 = ({ navigation }: any) => {
   const { useState, useRef } = React;
   const [countryName, setCountryName] = useState("");
-  const [minValueError, setMinValueError] = useState(true);
+  const [minimumValueError, setMinimumValueError] = useState(true);
 
   const errorRef = useRef(false);
 
@@ -14,10 +14,10 @@ const Screen1 = ({ navigation }: any) => {
 
   const handleChange = (value: string) => {
     if (value.length < 3) {
-      setMinValueError(true);
+      setMinimumValueError(true);
       errorRef.current = true;
     } else {
-      setMinValueError(false);
+      setMinimumValueError(false);
       errorRef.current = false;
     }
     setCountryName(value);
@@ -36,7 +36,7 @@ const Screen1 = ({ navigation }: any) => {
       />
       <View style={styles.button}>
         <Button
-          disabled={minValueError}
+          disabled={minimumValueError}
           onPress={handleButtonPress}
           title="Submit"
         />
